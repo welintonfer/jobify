@@ -12,7 +12,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/f
 
 type CustomFormFieldProps = {
   name: string;
-  control: Control<any>
+  control: Control<any>;
 }
 
 export function CustomFormField({name, control}:CustomFormFieldProps) {
@@ -33,7 +33,7 @@ export function CustomFormField({name, control}:CustomFormFieldProps) {
   )
 }
 
-type CustomFormFieldProps = {
+type CustomFormSelectProps = {
   name: string;
   control: Control<any>;
   items: string[];
@@ -41,7 +41,7 @@ type CustomFormFieldProps = {
 }
 
 export function CustomFormSelect({name, control, items, labelText}
-  :CustomFormFieldProps) {
+  :CustomFormSelectProps) {
     return <FormField control={control} name={name} render={({field})=>{
       return <FormItem>
         <FormLabel className='capitalize'>{labelText || name}</FormLabel>
@@ -63,5 +63,6 @@ export function CustomFormSelect({name, control, items, labelText}
         </Select>
         <FormMessage />
       </FormItem>
-    }}/>
+    }}
+  />
 }
