@@ -22,11 +22,13 @@ export async function createJobAction(values:CreateAndEditJobType)
 
   try {
     createAndEditJobSchema.parse(values)
-    const job:JobType = await prisma.job.create({
+    const job = await prisma.job.create({
       data: {
-        ...values, clerkId:userId
-      }
+        ...values,
+        clerkId: userId, // Adiciona o campo necessário
+      },
     });
+    
     return job;
   } catch (error) {
       console.log(error);
@@ -34,11 +36,3 @@ export async function createJobAction(values:CreateAndEditJobType)
   }
 }
 
-
-// function authenticateAndRedireact(): string {
-//   const { userId } = auth();
-//   if (!userId) {
-//     redirect('/');
-//   }
-//   return userId;
-// }
